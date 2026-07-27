@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Online</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:white;
+}
+
+/* ================= TOP BAR ================= */
+
+.top-bar{
+    width:100%;
+    background:#d90429;
+    color:white;
+    padding:12px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.offer{
+    font-size:15px;
+}
+
+.offer a{
+    color:white;
+    font-weight:bold;
+}
+
+.login-area{
+    display:flex;
+    gap:10px;
+}
+
+.sign,
+.log{
+    border:1px solid white;
+    background:transparent;
+    color:white;
+    padding:7px 16px;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.sign a{
+    color:white;
+    text-decoration:none;
+}
+
+.sign:hover,
+.log:hover{
+    background:white;
+    color:#d90429;
+}
+
+/* ================= LOGO ================= */
+
+.txt{
+    text-align:center;
+    padding:35px 0;
+    font-size:38px;
+}
+
+.txt span{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ================= NAVBAR ================= */
+
+.nav{
+    gap:40px;
+    margin-bottom:35px;
+}
+
+.nav-link{
+    color:black !important;
+    font-size:15px;
+    font-weight:500;
+}
+
+.nav-link:hover{
+    color:#d90429 !important;
+}
+
+/* ================= HERO ================= */
+
+.hero-img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+/* ================= ONLINE ================= */
+
+.online h1{
+    color:#db0f35;
+    font-weight:900;
+    font-size:50px;
+    padding-top:20px;
+    padding-left:40px;
+}
+
+.online p{
+    padding:20px 50px;
+}
+
+/* ================= ORDER BUTTON ================= */
+
+.order-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 22px;
+    border:1.5px solid #ff2345;
+    border-radius:30px;
+    background:rgb(221,181,181);
+    color:black;
+    font-size:15px;
+    cursor:pointer;
+    margin-left:50px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    background:#19c400;
+    border-radius:50%;
+}
+
+/* ================= PICKUP DELIVERY ================= */
+
+.pd{
+    display:flex;
+    margin:30px 50px;
+}
+
+.p{
+    border:1px solid #db0f35;
+    padding:10px 60px;
+    background:#db0f35;
+    color:white;
+}
+
+.d{
+    border:1px solid #db0f35;
+    padding:10px 60px;
+    color:#db0f35;
+}
+
+/* ================= PICKUP BAR ================= */
+
+.pickup-bar{
+    margin:30px 50px;
+    font-size:16px;
+}
+
+.pickup-bar a{
+    color:#db0f35;
+}
+
+/* ================= STICKY NAV ================= */
+
+.sticky-nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#f5f5f5;
+    padding:18px 35px;
+    border-bottom:1px solid #ff9aaa;
+}
+
+.menu-links{
+    display:flex;
+    gap:35px;
+}
+
+.menu-links a{
+    text-decoration:none;
+    color:black;
+    font-size:15px;
+}
+
+.menu-links a:hover{
+    color:#ff2045;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    padding:35px;
+}
+
+.main-title{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:30px;
+    border-bottom:1px solid #ff9aaa;
+    padding-bottom:20px;
+}
+
+.category{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:35px;
+    margin-top:50px;
+}
+
+/* ================= GRID ================= */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+/* IMPORTANT FIX */
+
+.menu-grid .card{
+    display:block !important;
+    width:100%;
+}
+
+/* ================= CARD ================= */
+
+.card{
+    border:1px solid #ff3a57 !important;
+    padding:16px !important;
+    min-height:190px !important;
+    background:#f7f4f4 !important;
+    border-radius:0 !important;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:none !important;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+}
+
+.card h2{
+    color:#ff2045;
+    font-size:18px;
+    margin-bottom:10px;
+    font-weight:900;
+}
+
+.card p{
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.price{
+    padding-top:20px;
+    font-weight:bold;
+}
+
+/* ================= MODAL ================= */
+
+.modal-content{
+    border-radius:0;
+    padding:15px;
+}
+
+.modal-title{
+    font-size:42px;
+    font-weight:900;
+    color:#111;
+}
+
+.modal-body p{
+    line-height:1.8;
+    margin-top:10px;
+    color:#444;
+}
+
+.special-box{
+    width:100%;
+    height:120px;
+    border:1px solid #ccc;
+    padding:15px;
+    outline:none;
+    resize:none;
+    margin-top:10px;
+}
+
+.qty-box{
+    display:flex;
+    align-items:center;
+    width:130px;
+    height:45px;
+    border:1px solid #999;
+    margin-top:10px;
+}
+
+.qty-btn{
+    width:40px;
+    height:43px;
+    border:none;
+    background:white;
+    font-size:25px;
+}
+
+.qty-number{
+    flex:1;
+    text-align:center;
+    font-size:18px;
+}
+
+.cart-btn{
+    width:100%;
+    background:#d90429;
+    color:white;
+    border:none;
+    padding:16px;
+    margin-top:35px;
+    font-size:22px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    width:100%;
+    background:#d90429;
+    color:white;
+    padding:75px 90px;
+    display:flex;
+    justify-content:space-between;
+    gap:90px;
+    flex-wrap:wrap;
+    margin-top:60px;
+}
+
+.footer-left{
+    flex:1;
+    min-width:330px;
+}
+
+.footer-left h1{
+    font-size:40px;
+    font-weight:800;
+    line-height:1.3;
+}
+
+.footer-left form{
+    margin-top:35px;
+}
+
+.footer-left label{
+    display:block;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.inp{
+    width:350px;
+    max-width:100%;
+    height:45px;
+    background:transparent;
+    border:1px solid white;
+    outline:none;
+    color:white;
+    padding:10px;
+}
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.checkbox span{
+    font-size:14px;
+}
+
+.cbox{
+    width:18px;
+    height:18px;
+}
+
+.join{
+    width:95px;
+    height:40px;
+    border:none;
+    background:white;
+    color:#d90429;
+    font-weight:700;
+}
+
+.footer-right{
+    flex:1;
+    min-width:400px;
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+}
+
+.col h3{
+    font-size:22px;
+    margin-bottom:22px;
+    font-weight:700;
+}
+
+.col a{
+    display:block;
+    text-decoration:none;
+    color:white;
+    margin-bottom:12px;
+    font-size:15px;
+}
+
+.copy{
+    width:100%;
+    background:white;
+    text-align:center;
+    padding:15px;
+    font-size:13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px){
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .menu-links{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .main-title{
+        font-size:35px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .top-bar{
+        flex-direction:column;
+        gap:12px;
+        text-align:center;
+    }
+
+    .nav{
+        gap:15px;
+    }
+
+    .footer{
+        padding:50px 20px;
+    }
+
+    .footer-right{
+        flex-direction:column;
+        gap:40px;
+    }
+
+    .footer-left h1{
+        font-size:30px;
+    }
+
+    .online h1{
+        font-size:28px;
+        padding-left:20px;
+    }
+
+    .online p{
+        padding:15px 20px;
+    }
+
+    .order-btn{
+        margin-left:20px;
+    }
+
+    .pd{
+        margin:20px;
+        flex-wrap:wrap;
+    }
+
+    .p, .d{
+        padding:10px 30px;
+    }
+
+    .pickup-bar{
+        margin:20px;
+    }
+
+    .sticky-nav{
+        padding:14px 20px;
+    }
+
+    .menu-links{
+        gap:18px;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .hero-img{
+        height:220px;
+    }
+}
+
+body{
+    overflow-x:hidden;
+}
+</style>
+</head>
+<body>
+<!-- ================= TOP BAR ================= -->
+<div class="top-bar">
+<div id="welcome-message"></div>
+<div class="offer">
+<a href="#">Join the Salt'n Pepper Club</a>
+& get $10 off your next time
+</div>
+<div class="login-area">
+<button class="sign">
+<a href="signin.html">
+Sign In <i class="fa-solid fa-circle-user"></i>
+</a>
+</button>
+<button class="log">
+Log Out
+</button>
+</div>
+</div>
+
+<!-- ================= LOGO ================= -->
+
+<div class="txt">
+<span>Est.</span>
+<strong>Salt'n Pepper </strong>
+<span>2035</span>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+
+<ul class="nav justify-content-center text-dark">
+<li class="nav-item">
+<a class="nav-link text-dark" href="menu.html">Menu</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="delivery.html">Order Online</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="booktable.html">Book a Table</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="#">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="#">Hours & Locations</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="#">
+<i class="fa-solid fa-bag-shopping"></i>0
+</a>
+</li>
+</ul>
+
+<!-- ================= HERO IMAGE ================= -->
+
+<img src="./image/pitza bg.avif"
+alt=""
+class="hero-img">
+
+<!-- ================= ONLINE ================= -->
+
+<div class="online">
+<h1>Online Ordering</h1>
+<p>
+You can order online! Browse our menu items
+and choose what you’d like to order from us.
+</p>
+</div>
+
+<!-- ================= ORDER BTN ================= -->
+
+<button class="order-btn">
+<span class="dot"></span>
+Accepting Orders
+</button>
+
+<!-- ================= PICKUP ================= -->
+
+<div class="pd">
+<div class="p">Pickup</div>
+<div class="d">Delivery</div>
+</div>
+<div class="pickup-bar">
+<i class="fa-regular fa-clock"></i>
+<span>
+Pickup time: Up to 30 minutes
+</span>
+<a href="#">Change</a>
+&nbsp;&nbsp;&nbsp;
+<i class="fa-solid fa-location-dot"></i>
+<span>
+Pickup Address: San Francisco, CA
+</span>
+</div>
+<!-- STICKY NAVBAR -->
+
+<div class="sticky-nav">
+
+    <div class="menu-links">
+        <a href="#">Starters</a>
+        <a href="#">It’s Pizza Time</a>
+        <a href="#">Main</a>
+        <a href="#">Kids Favorites</a>
+        <a href="#">Special Offers</a>
+    </div>
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+    <h1 class="main-title">
+        All Day, Every Day
+    </h1>
+<a href="Starters" class="category">Starters</a>
+    <div class="menu-grid">
+        <div class="card">
+            <h2>Bruschetta of the Day</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Tomato Caprese</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Grilled Portobello Mushrooms</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Carpaccio</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+        <div class="card">
+            <h2>Burrata Salad</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+        <div class="card">
+            <h2>Garden Salad</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+    </div>
+    <a href="Starters" class="category">It’s Pizza Time</a>
+    <div class="menu-grid">
+        <div class="card">
+            <h2>Margherita</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Spicy Arrabbiata</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Pepperoni</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+    </div> 
+    <h2 class="category">
+        Main
+    </h2>
+    <div class="menu-grid">
+        <div class="card">
+            <h2>Pasta Carbonara</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Lasagna Bolognese</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Spaghetti Marinara</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Cheese Tortellini</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+        <div class="card">
+            <h2>Chicken Marsala</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+          <div class="card">
+            <h2>Fish of the Day</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+    </div>  
+    <h2 class="category">
+        Main
+    </h2>
+    <div class="menu-grid">
+        <a href="Starters" class="category">Spaghetti Marinara</a>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Mac & Cheese</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Cheese Ravioli</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Salt'n Pepper Meatballs</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+        <div class="card">
+            <h2>Chicken Strips</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+          <div class="card">
+            <h2>Crispy Mozzarella</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$9.00</div>
+        </div>
+    </div> 
+    <h2 class="category">
+        Main
+    </h2>
+    <div class="menu-grid">
+        <div class="card">
+            <h2>Spaghetti Marinara</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Mac & Cheese</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        <div class="card">
+            <h2>Cheese Ravioli</h2>
+            <p>
+                I’m a dish description. Click “Edit Menu”
+                to open the Restaurant Menu editor and
+                change my text.
+            </p>
+            <div class="price">$7.00</div>
+        </div>
+        </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<div class="footer">
+<div class="footer-left">
+<h1>Join the Salt’n Pepper Club &</h1>
+<h1>Get $10 off Your Next Visit</h1>
+<form>
+<label>Email *</label>
+<input type="email" class="inp">
+<div class="checkbox">
+<input type="checkbox" class="cbox">
+<span>
+Yes, subscribe me to your newsletter.
+</span>
+<button class="join">
+Join
+</button>
+</div>
+</form>
+</div>
+<div class="footer-right">
+<div class="col">
+<h3>Quick Links</h3>
+<a href="#">Menu</a>
+<a href="#">Order Online</a>
+<a href="#">Book a Table</a>
+<a href="#">About</a>
+</div>
+<div class="col">
+<h3>Contact</h3>
+<a href="#">Hours & Locations</a>
+<a href="#">Careers</a>
+<a href="#">Salt’n Pepper Club</a>
+</div>
+<div class="col">
+<h3>Follow Us</h3>
+<a href="#">Facebook</a>
+<a href="#">Instagram</a>
+<a href="#">Twitter</a>
+</div>
+</div>
+</div>
+
+<!-- ================= COPYRIGHT ================= -->
+
+<div class="copy">
+© 2035 by Salt’n Pepper. Powered and secured by Wix
+</div>
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal fade" id="foodModal" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header border-0">
+<h1 class="modal-title" id="foodTitle">
+Food Name
+</h1>
+<button type="button"
+class="btn-close"
+data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<p id="foodDesc">
+I’m a dish description.
+</p>
+
+<label class="mb-2">
+Special Request
+</label>
+<textarea class="special-box"
+placeholder="Add allergies or other notes..."></textarea>
+<div class="mt-4">
+
+<label>Quantity</label>
+
+<div class="qty-box">
+
+<button class="qty-btn" id="minusBtn">−</button>
+
+<div class="qty-number" id="qty">1</div>
+
+<button class="qty-btn" id="plusBtn">+</button>
+
+</div>
+
+</div>
+
+<button class="cart-btn" id="cartBtn">
+Add to cart | $0.00
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const cards = document.querySelectorAll(".card");
+
+const modal = new bootstrap.Modal(
+document.getElementById("foodModal")
+);
+
+const foodTitle = document.getElementById("foodTitle");
+const foodDesc = document.getElementById("foodDesc");
+const cartBtn = document.getElementById("cartBtn");
+const qtyText = document.getElementById("qty");
+
+const plusBtn = document.getElementById("plusBtn");
+const minusBtn = document.getElementById("minusBtn");
+
+let quantity = 1;
+let currentPrice = 0;
+
+cards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+const title =
+card.querySelector("h2").innerText;
+
+const desc =
+card.querySelector("p").innerText;
+
+const priceText =
+card.querySelector(".price").innerText;
+
+currentPrice =
+parseFloat(priceText.replace("$",""));
+
+foodTitle.innerText = title;
+
+foodDesc.innerText = desc;
+
+quantity = 1;
+
+qtyText.innerText = quantity;
+
+updateCart();
+
+modal.show();
+
+});
+
+});
+
+function updateCart(){
+
+let total =
+currentPrice * quantity;
+
+cartBtn.innerText =
+`Add to cart | $${total.toFixed(2)}`;
+
+}
+
+plusBtn.addEventListener("click",()=>{
+
+quantity++;
+
+qtyText.innerText = quantity;
+
+updateCart();
+
+});
+
+minusBtn.addEventListener("click",()=>{
+
+if(quantity > 1){
+
+quantity--;
+
+qtyText.innerText = quantity;
+
+updateCart();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

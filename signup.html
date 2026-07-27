@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content{
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    background-color: white;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+h1{
+    margin-bottom: 20px;
+    color: rgb(216, 6, 6);
+}
+
+.inputbox{
+    padding: 10px;
+}
+
+input{
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus{
+    border-color: rgb(216, 6, 6);
+    outline: none;
+    box-shadow: 0 0 5px rgba(216,6,6,0.5);
+}
+
+.inputBox input[type="submit"]{
+    background-color: rgb(216, 6, 6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.inputBox input[type="submit"]:hover{
+    background-color: darkred;
+}
+
+.links {
+    margin: 15px;
+    font-size: 14px;
+}
+
+.links a{
+    color: rgb(216, 6, 6);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links a:hover{
+    text-decoration: underline;
+}
+</style>
+<body>
+    <section>
+        <div class="content">
+            <h1>SignUp</h1>
+            <div class="form">
+                <div class="inputbox">
+                    <input type="text" required placeholder="Name" name="name">
+                </div>
+                <div class="inputbox">
+                    <input type="text" required placeholder="Username" name="username">
+                </div>
+                <div class="inputbox">
+                    <input type="email" required placeholder="Mail" name="mail">
+                </div>
+                <div class="inputbox">
+                    <input type="password" required placeholder="Password" name="password">
+                </div>
+                <div class="links"> Already have an account  <a href="signin.html">Signin</a></div>
+             <div class="inputBox">
+                <input type="submit" value="Sign Up" onclick="signup()">
+            </div>
+        </div>
+    
+    </section>
+    <script>
+       function signup(){
+    var name=document.querySelector('Input[name="name"]').value;
+    var username=document.querySelector('Input[name="username"]').value;
+    var mail=document.querySelector('Input[name="mail"]').value;
+    var password=document.querySelector('Input[name="password"]').value;
+
+    if(name && username && mail && password){
+
+        localStorage.setItem(username,JSON.stringify({name,username,mail,password}));
+
+        // 🔥 ADD THIS LINE ONLY
+        localStorage.setItem("username", username);
+
+        window.location.href="index.html"
+    }
+    else{
+        alert("please fill all fields.");
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+</head>
+<style>
+    body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content{
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    background-color: white;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+h1{
+    margin-bottom: 20px;
+    color: rgb(216, 6, 6);
+}
+
+.inputbox{
+    padding: 10px;
+}
+
+input{
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus{
+    border-color: rgb(216, 6, 6);
+    outline: none;
+    box-shadow: 0 0 5px rgba(216,6,6,0.5);
+}
+
+input[type="submit"]{
+    background-color: rgb(216, 6, 6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover{
+    background-color: darkred;
+}
+
+.links {
+    margin: 15px;
+    font-size: 14px;
+}
+
+.links a{
+    color: rgb(216, 6, 6);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links a:hover{
+    text-decoration: underline;
+}
+</style>
+<body>
+     <section>
+        <div class="content">
+            <h1>SignIn</h1>
+            <div class="form">
+                <div class="inputbox">
+                    <input type="text" required placeholder="Username" name="username">
+                </div>
+                <div class="inputbox">
+                    <input type="password" required placeholder="Password" name="password">
+                </div>
+                <div class="links"> Already have an account  <a href="signup.html">Signup</a></div>
+             <div class="inputbox">
+                <input type="submit" value="Sign In" onclick="signin()">
+            </div>
+        </div>
+    </section>
+    <script>
+       function signin(){
+    var username=document.querySelector('.inputbox input[type="text"]').value;
+    var password = document.querySelector('.inputbox input[type="password"]').value;
+    var storedata=localStorage.getItem(username);
+
+    if(storedata){
+        var parsedata = JSON.parse(storedata);
+        var storedusername =parsedata.username;
+        var storedpassword=parsedata.password;
+
+        if(username ===storedusername && password === storedpassword){
+
+            // 🔥 FIX (ADD THIS LINE)
+            localStorage.setItem("username", username);
+
+            window.location.href=`index.html`;
+        }
+        else {
+            alert('Invalid username or password.');
+        }
+
+    } else{
+        alert("user not found,Please signup first");
+    }
+}
+    </script>
+</body>
+</html>

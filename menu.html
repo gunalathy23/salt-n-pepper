@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Restaurant Menu</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+/* ================= TOP BAR ================= */
+
+.top-bar{
+    width:100%;
+    background:#d90429;
+    color:white;
+    padding:12px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.offer{
+    font-size:15px;
+}
+
+.offer a{
+    color:white;
+    font-weight:bold;
+}
+
+.login-area{
+    display:flex;
+    gap:10px;
+}
+
+.sign,
+.log{
+    border:1px solid white;
+    background:transparent;
+    color:white;
+    padding:7px 16px;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.sign a{
+    color:white;
+    text-decoration:none;
+}
+
+.sign:hover,
+.log:hover{
+    background:white;
+    color:#d90429;
+}
+
+/* ================= LOGO ================= */
+
+.txt{
+    text-align:center;
+    padding:35px 0;
+    font-size:38px;
+}
+
+.txt span{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+/* ================= NAVBAR ================= */
+
+.nav{
+    gap:40px;
+    margin-bottom:35px;
+}
+
+.nav-link{
+    color:black !important;
+    font-size:15px;
+    font-weight:500;
+}
+
+.nav-link:hover{
+    color:#d90429 !important;
+}
+
+/* ================= MENU SECTION ================= */
+
+.menu{
+    width:100%;
+    background:#f6eee7;
+    padding:40px 0 70px;
+}
+
+.mp{
+    text-align:center;
+    color:#d90429;
+    font-size:18px;
+    font-weight:700;
+}
+
+.mh1{
+    text-align:center;
+    font-size:48px;
+    font-weight:800;
+    margin-top:10px;
+    margin-bottom:50px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* ================= WHITE BOX ================= */
+
+.mainmenu{
+    width:86%;
+    background:#f3f3f3;
+    margin:auto;
+    padding:40px 30px 60px;
+}
+
+/* ================= TITLES ================= */
+
+.day-title{
+    font-size:40px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.category{
+    font-size:30px;
+    font-weight:800;
+    margin:45px 0 35px;
+}
+
+/* ================= GRID ================= */
+
+.submenu{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:55px 70px;
+}
+
+/* ================= ITEMS ================= */
+
+.item h2{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.item p{
+    font-size:14px;
+    color:#444;
+    line-height:1.7;
+}
+
+.price{
+    margin-top:12px;
+    font-weight:bold;
+    color:black !important;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    width:100%;
+    background:#d90429;
+    color:white;
+    padding:75px 90px;
+    display:flex;
+    justify-content:space-between;
+    gap:90px;
+    flex-wrap:wrap;
+}
+
+/* LEFT */
+
+.footer-left{
+    flex:1;
+    min-width:330px;
+}
+
+.footer-left h1{
+    font-size:40px;
+    font-weight:800;
+    line-height:1.3;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.footer-left form{
+    margin-top:35px;
+}
+
+.footer-left label{
+    display:block;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+/* INPUT */
+
+.inp{
+    width:350px;
+    max-width:100%;
+    height:45px;
+    background:transparent;
+    border:1px solid white;
+    outline:none;
+    color:white;
+    padding:10px;
+}
+
+/* CHECKBOX */
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.checkbox span{
+    font-size:14px;
+}
+
+.cbox{
+    width:18px;
+    height:18px;
+}
+
+/* BUTTON */
+
+.join{
+    width:95px;
+    height:40px;
+    border:none;
+    background:white;
+    color:#d90429;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.join:hover{
+    background:transparent;
+    color:white;
+    border:1px solid white;
+}
+
+/* RIGHT */
+
+.footer-right{
+    flex:1;
+    min-width:400px;
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+}
+
+/* COLUMNS */
+
+.col h3{
+    font-size:22px;
+    margin-bottom:22px;
+    font-weight:700;
+}
+
+.col a{
+    display:block;
+    text-decoration:none;
+    color:white;
+    margin-bottom:12px;
+    font-size:15px;
+}
+
+.col a:hover{
+    text-decoration:underline;
+}
+
+/* COPYRIGHT */
+
+.copy{
+    width:100%;
+    background:white;
+    text-align:center;
+    padding:15px;
+    font-size:13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+    .submenu{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer{
+        flex-direction:column;
+        padding:60px 40px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .top-bar{
+        flex-direction:column;
+        gap:12px;
+        text-align:center;
+    }
+
+    .nav{
+        gap:15px;
+    }
+
+    .submenu{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .mh1{
+        font-size:30px;
+    }
+
+    .mainmenu{
+        width:100%;
+        padding:30px 20px 40px;
+    }
+
+    .day-title{
+        font-size:28px;
+    }
+
+    .category{
+        font-size:24px;
+        margin:30px 0 20px;
+    }
+
+    .footer-right{
+        flex-direction:column;
+        gap:40px;
+    }
+
+    .footer-left h1{
+        font-size:30px;
+    }
+
+    .footer{
+        padding:50px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= TOP BAR ================= -->
+
+<div class="top-bar">
+
+    <div class="offer">
+        <a href="#">Join the Salt'n Pepper Club</a>
+        & get $10 off your next time
+    </div>
+
+    <div class="login-area">
+
+        <button class="sign">
+            <a href="#">
+                Sign In
+                <i class="fa-solid fa-circle-user"></i>
+            </a>
+        </button>
+
+        <button class="log">
+            Log Out
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= LOGO ================= -->
+
+<div class="txt">
+
+    <span>Est.</span>
+
+    <strong>Salt'n Pepper</strong>
+
+    <span>2035</span>
+
+</div>
+
+<!-- ================= NAVBAR ================= -->
+
+<ul class="nav justify-content-center">
+
+    <li class="nav-item">
+        <a class="nav-link" href="menu.html">Menu</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="order online.html">Order Online</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#">Book a Table</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#">Hours & Locations</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fa-solid fa-bag-shopping"></i> 0
+        </a>
+    </li>
+
+</ul>
+
+<!-- ================= MENU ================= -->
+
+<div class="menu">
+
+    <p class="mp">Our Menu</p>
+
+    <h1 class="mh1">Italian Inspired Kitchen</h1>
+
+    <div class="mainmenu">
+
+        <h1 class="day-title">All Day, Every Day</h1>
+
+        <!-- STARTERS -->
+
+        <h2 class="category">Starters</h2>
+
+        <div class="submenu">
+
+            <div class="item">
+                <h2>Bruschetta of the Day</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$7.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Tomato Caprese</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$7.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Grilled Portobello Mushrooms</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$7.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Carpaccio</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$9.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Burrata Salad</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$9.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Garden Salad</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$7.00</p>
+            </div>
+
+        </div>
+
+        <!-- PIZZA -->
+
+        <h2 class="category">It’s Pizza Time</h2>
+
+        <div class="submenu">
+
+            <div class="item">
+                <h2>Margherita</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$7.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Spicy Arrabbiata</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$7.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Pepperoni</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$7.00</p>
+            </div>
+
+        </div>
+
+        <!-- MAIN -->
+
+        <h2 class="category">Main</h2>
+
+        <div class="submenu">
+
+            <div class="item">
+                <h2>Pasta Carbonara</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$10.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Lasagna Bolognese</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$11.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Spaghetti Marinara</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$10.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Cheese Tortellini</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$15.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Chicken Marsala</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$19.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Fish of the Day</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$19.00</p>
+            </div>
+
+        </div>
+
+        <!-- KIDS -->
+
+        <h2 class="category">Kids Favorites</h2>
+
+        <div class="submenu">
+
+            <div class="item">
+                <h2>Spaghetti Pomodoro</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$11.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Mac & Cheese</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$11.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Cheese Ravioli</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$11.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Salt'n Pepper Meatballs</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$11.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Chicken Strips</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$11.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Crispy Mozzarella</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$11.00</p>
+            </div>
+
+        </div>
+
+        <!-- SPECIAL OFFERS -->
+
+        <h2 class="category">Special Offers</h2>
+
+        <div class="submenu">
+
+            <div class="item">
+                <h2>Daily Meal Deal</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$17.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Family Bundle</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$22.00</p>
+            </div>
+
+            <div class="item">
+                <h2>Chef's Selection - Per Person</h2>
+                <p>I’m a dish description. Click “Edit Menu” to open the Restaurant Menu editor and change my text.</p>
+                <p class="price">$18.00</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<div class="footer">
+
+    <!-- LEFT -->
+
+    <div class="footer-left">
+
+        <h1>Join the Salt’n Pepper Club &</h1>
+        <h1>Get $10 off Your Next Visit</h1>
+
+        <form>
+
+            <label>Email *</label>
+
+            <input type="email" class="inp">
+
+            <div class="checkbox">
+
+                <input type="checkbox" class="cbox">
+
+                <span>
+                    Yes, subscribe me to your newsletter. *
+                </span>
+
+                <button class="join">
+                    Join
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="footer-right">
+
+        <div class="col">
+
+            <h3>Quick Links</h3>
+
+            <a href="#">Menu</a>
+            <a href="#">Order Online</a>
+            <a href="#">Book a Table</a>
+            <a href="#">About</a>
+
+        </div>
+
+        <div class="col">
+
+            <h3>Contact</h3>
+
+            <a href="#">Hours & Locations</a>
+            <a href="#">Careers</a>
+            <a href="#">Salt’n Pepper Club</a>
+
+        </div>
+
+        <div class="col">
+
+            <h3>Follow Us</h3>
+
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Yelp!</a>
+            <a href="#">Twitter</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= COPYRIGHT ================= -->
+
+<div class="copy">
+    © 2035 by Salt’n Pepper. Powered and secured by Wix
+</div>
+
+</body>
+</html>
